@@ -1,14 +1,14 @@
 # Deployment Guide for Non-containerized App
 file version: deployment  
-This deployment guide takes a Node.js App as an example.
+This deployment guide takes Node.js App (Express framework) as an example.
 
 ## SSH to EC2 Instance:
-* Set read permission to key file
+* Set read permission to key file:
 ```bash
 chmod 400 <pem-dir>
 ```
 
-* SSH
+* SSH:
 ```bash
 ssh -i <pem-dir> <ec2-user@public-dns>
 ```
@@ -65,12 +65,12 @@ touch .env
 vim .env
 ```
 
-* Login to npm (If private npm packages are used):
+* Login to npm (If private npm packages were used):
 ```bash
 npm login
 ```
 
-* Install npm dependency:
+* Install npm dependencies:
 ```bash
 npm install
 ```
@@ -80,7 +80,7 @@ npm install
 forever start bin/www  
 ```  
 
-## Clean up
+## Clean Up
 * Exit SSH:
 ```bash
 exit
