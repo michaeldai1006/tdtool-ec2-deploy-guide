@@ -33,14 +33,19 @@ sudo service docker start
 sudo usermod -a -G docker ec2-user
 ```
 
-* Install docker-compose
+* Install docker-compose:
 ```bash
 sudo curl -L https://github.com/docker/compose/releases/latest/download/docker-compose-$(uname -s)-$(uname -m) -o /usr/local/bin/docker-compose
 ```
 
-* Fix docker-compose permission
+* Fix docker-compose permission:
 ```bash
 sudo chmod +x /usr/local/bin/docker-compose
+```
+
+* Create symbolic link for docker-compose:
+```bash
+sudo ln -s /usr/local/bin/docker-compose /usr/bin/docker-compose
 ```
 
 * Install Git:
@@ -48,22 +53,7 @@ sudo chmod +x /usr/local/bin/docker-compose
 sudo yum install git
 ```
 
-* Install NVM:
-```bash
-curl -o- https://raw.githubusercontent.com/creationix/nvm/v0.33.8/install.sh | bash 
-```
-
-* Install Node:
-```bash
-nvm install <node-version>
-```
-
-* Install forever npm package:
-```bash
-npm install -g forever
-```
-
-* Mapping port:
+* Mapping port (If needed):
 ```bash
 sudo iptables -t nat -I PREROUTING -p tcp --dport 80 -j REDIRECT --to-ports <project-port>
 ```
@@ -79,33 +69,27 @@ git clone <git-repo-url>
 cd <project-name>
 ```
 
-* Switfh to target branch:
+* Switch to target branch:
 ```bash
 git checkout <target-branch-name>
 ```
 
-* Configure .env file:
+* Start application:
 ```bash
-touch .env
-vim .env
+docker-compose up -d
 ```
 
-* Login to npm (If private npm packages were used):
+* Stop application:
 ```bash
-npm login
+docker-compose stop
 ```
-
-* Install npm dependencies:
-```bash
-npm install
-```
-
-* Start App using node package forever:
-```bash
-forever start bin/www  
-```  
 
 ## Clean Up
+* Stop application, remove containers entirely:
+```bash
+docker-compose down
+```
+
 * Exit SSH:
 ```bash
 exit

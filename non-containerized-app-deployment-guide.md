@@ -54,7 +54,7 @@ git clone <git-repo-url>
 cd <project-name>
 ```
 
-* Switfh to target branch:
+* Switch to target branch:
 ```bash
 git checkout <target-branch-name>
 ```
