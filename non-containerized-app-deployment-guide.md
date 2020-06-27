@@ -38,7 +38,7 @@ nvm install <node-version>
 npm install -g forever
 ```
 
-* Mapping port:
+* Mapping port (If needed):
 ```bash
 sudo iptables -t nat -I PREROUTING -p tcp --dport 80 -j REDIRECT --to-ports <project-port>
 ```
