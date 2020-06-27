@@ -1,5 +1,5 @@
 # Deployment Guide for Non-containerized App
-file version: deployment  
+file version: 0.1  
 This deployment guide takes Node.js App (Express framework) as an example.
 
 ## SSH to EC2 Instance:

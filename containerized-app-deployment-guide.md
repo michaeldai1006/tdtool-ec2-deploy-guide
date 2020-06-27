@@ -1,5 +1,5 @@
 # Deployment Guide for Containerized App
-file version: deployment  
+file version: 0.1  
 This deployment guide is for App embedded with Docker Compose file which will be built in the EC2 instance.
 
 ## SSH to EC2 Instance:
